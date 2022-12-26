@@ -1,0 +1,80 @@
+<?php
+$session = session(); 
+?>
+	<?php
+$session = session();  
+$uri = service('uri'); 
+?>
+  
+  <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="header-top">
+
+            <div class="container">
+                <div class="ht-left">
+                    <div class="mail-service">
+                        <a href="<?= site_url('/') ?>"><img src="<?= base_url('/img/logo.png') ?>" alt=""></a>
+                    </div>
+                    <div class="mail-service">
+                        <i class=" fa fa-envelope"></i>
+                        WorkshopBK@gmail.com
+                    </div>
+                    <div class="phone-service">
+                        <i class=" fa fa-phone"></i>
+                        +62 641 642 669
+                    </div> 
+                    
+                </div>
+
+                <div class="ht-right"> 
+                <?php if($session->get('isLoggedIn')): ?>
+                <a href="<?= site_url('logout') ?>" class="login-panel"><i class="fa fa-user"></i>Logout ( <?= $session->get('username')?> )</a>
+                <?php else: ?>
+                <a href="<?= site_url('login') ?>" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                <?php endif ?>
+                    <div class="lan-selector">
+                        <select class="language_drop" name="countries" id="countries" style="width:300px;">
+                            <option value='yt' data-image="<?= base_url('/img/flag-1.jpg') ?>" data-imagecss="flag yt"
+                                data-title="English">English</option>
+                            <option value='yu' data-image="<?= base_url('/img/flag-2.jpg') ?>" data-imagecss="flag yu"
+                                data-title="Bangladesh">German </option>
+                        </select>
+                    </div>
+                    <div class="top-social">
+                        <a href="https://www.facebook.com/"><i class="ti-facebook"></i></a>
+                        <a href="https://www.instagram.com/"><i class="ti-twitter-alt"></i></a>
+                        <a href="https://twitter.com"><i class="ti-linkedin"></i></a>
+                        <a href="https://id.pinterest.com/"><i class="ti-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-item">
+            <div class="container">
+                <div class="nav-depart">
+                    <div class="depart-btn">
+                        <i class="ti-menu"></i>
+                        <span>All categories</span>
+                        <ul class="depart-hover">
+                            <li class="active"><a href="<?= site_url('shop/category/2') ?>">Women’s Clothing</a></li>
+                            <li><a href="<?= site_url('shop/category/1') ?>">Men’s Clothing</a></li> 
+                            <li><a href="<?= site_url('shop/category/3') ?>">Kid's Clothing</a></li> 
+                        </ul>
+                    </div>
+                </div>
+                <nav class="nav-menu mobile-menu">
+                    <ul> 
+                        <li <?= ($uri->getSegment(1)=='')?'class="active"':''?>><a href="<?= site_url('/') ?>">Home</a></li>
+                        <li <?= ($uri->getSegment(1)=='shop')?'class="active"':''?>><a href="<?= site_url('shop') ?>">Shop</a></li>  
+                        <li <?= ($uri->getSegment(1)=='contact')?'class="active"':''?>><a href="<?= site_url('contact') ?>">Contact</a></li>  
+                        <?php if($session->get('isLoggedIn')): ?> 
+                        <li <?= ($uri->getSegment(1)=='transaction')?'class="active"':''?>><a href="<?= site_url('transaction') ?>">Transaction</a></li>
+                        <?php endif ?>
+                    </ul>
+                </nav>
+                <div id="mobile-menu-wrap"></div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
