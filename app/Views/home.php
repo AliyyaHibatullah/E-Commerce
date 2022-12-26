@@ -131,7 +131,7 @@
                                     <h5>Guangzhou sweater</h5>
                                 </a>
                                 <div class="product-price">
-                                    $13.00
+                                    $15.00
                                 </div>
                             </div>
                         </div>
@@ -277,7 +277,7 @@
                                     <h5>Guangzhou sweater</h5>
                                 </a>
                                 <div class="product-price">
-                                    $13.00
+                                    $15.00
                                 </div>
                             </div>
                         </div>
